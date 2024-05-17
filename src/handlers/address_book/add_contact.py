@@ -1,6 +1,6 @@
 from src.utils.decorators.input_error import input_error
-from src.models.address_book.address_book import AddressBook
-from src.models.record.record import Record
+from src.models.address_book import AddressBook
+from src.models.record import Record
 
 @input_error
 def add_contact(args, book: AddressBook):

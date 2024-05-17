@@ -1,15 +1,6 @@
-from src.handlers.address_book.add_birthday.add_birthday import add_birthday
-from src.handlers.address_book.add_contact.add_contact import add_contact
-from src.handlers.address_book.birthdays.birthdays import birthdays
-from src.handlers.address_book.change_contact.change_contact import change_contact
-from src.handlers.address_book.remove_phone.remove_phone import remove_phone
-from src.handlers.address_book.show_all.show_all import show_all
-from src.handlers.address_book.show_birthday.show_birthday import show_birthday
-from src.handlers.address_book.show_phone.show_phone import show_phone
-from src.utils.data.load_data import load_data
-from src.utils.data.save_data import save_data
-from src.utils.decorators.input_error import input_error
-from src.models.address_book.address_book import AddressBook
+from src.handlers import add_birthday, add_contact, birthdays, change_contact, show_all, show_phone, remove_phone, show_birthday
+from src.models import AddressBook
+from src.utils import input_error, load_data, save_data
 
 @input_error
 def parse_input(user_input):

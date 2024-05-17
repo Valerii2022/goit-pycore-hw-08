@@ -1,5 +1,5 @@
 from src.utils.decorators.input_error import input_error
-from src.models.address_book.address_book import AddressBook
+from src.models.address_book import AddressBook
 
 @input_error
 def show_phone(args, book: AddressBook):

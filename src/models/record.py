@@ -1,6 +1,6 @@
-from src.models.name.name import Name
-from src.models.phone.phone import Phone
-from src.models.birthday.birthday import Birthday
+from src.models.name import Name
+from src.models.phone import Phone
+from src.models.birthday import Birthday
 
 class Record:
     def __init__(self, name):
