@@ -1,4 +1,4 @@
-from src.models.field import Field
+from src.models import Field
 
 class Phone(Field):
     def __init__(self, value):

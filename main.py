@@ -1,16 +1,8 @@
 from src.handlers import add_birthday, add_contact, birthdays, change_contact, show_all, show_phone, remove_phone, show_birthday
-from src.models import AddressBook
-from src.utils import input_error, load_data, save_data
-
-@input_error
-def parse_input(user_input):
-    cmd, *args = user_input.split()
-    cmd = cmd.strip().lower()
-    return cmd, *args
+from src.utils import load_data, save_data, parse_input
 
 def main():
-    current_book = load_data()
-    book = current_book if current_book else AddressBook() 
+    book = load_data()
     print("Welcome to the assistant bot!")
     while True:
         user_input = input("Enter a command: ")

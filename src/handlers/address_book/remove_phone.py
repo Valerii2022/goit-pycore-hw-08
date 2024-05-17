@@ -1,5 +1,5 @@
-from src.utils.decorators.input_error import input_error
-from src.models.address_book import AddressBook
+from src.utils import input_error
+from src.models import AddressBook
 
 @input_error
 def remove_phone(args, book: AddressBook):
