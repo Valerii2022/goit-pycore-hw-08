@@ -1,6 +1,6 @@
 import pickle
 
-from src.models.address_book import AddressBook
+from src.models import AddressBook
 
 def load_data(filename="addressbook.pkl"):
     try:
