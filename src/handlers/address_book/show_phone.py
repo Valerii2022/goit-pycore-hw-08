@@ -12,6 +12,6 @@ def show_phone(args, book: AddressBook):
     else:
         finded_phone = record.find_phone()
         if finded_phone:
-            return finded_phone
+            return f"Phones for contact {name}: {finded_phone}"
         else:
             return f"No phones for contact {name}"

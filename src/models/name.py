@@ -1,4 +1,4 @@
-from src.models import Field
+from src.models.field import Field
 
 class Name(Field):
     pass
