@@ -2,6 +2,7 @@ from src.handlers import add_birthday, add_contact, birthdays, change_contact, s
 from src.utils import load_data, save_data, parse_input
 from prompt_toolkit import prompt
 from prompt_toolkit.completion import WordCompleter
+from colorama import Fore, Style, Back
 
 commands = [
     "close ", "exit ", "hello ", "add ", "change ", "phone ", "remove-phone ", "all ", "add-birthday ", "show-birthday ", "birthdays ", "help "
@@ -12,7 +13,7 @@ command_completer = WordCompleter(commands, ignore_case=True)
 
 def main():
     book = load_data()
-    print("Welcome to the assistant bot!")
+    print(Fore.YELLOW + "Welcome to the assistant bot!")
     while True:
         try:
             user_input = prompt("Enter a command: ", completer=command_completer)
@@ -20,14 +21,14 @@ def main():
 
             if command in ["close", "exit"]:
                 save_data(book)
-                print("Good bye!")
+                print(Fore.YELLOW + "Good bye!" + Style.RESET_ALL)
                 break
 
             elif command == "help":
-                print("add: add new contact, need 2 arguments - name and phone number 10 digits\nchange: change contact phone information, need 3 arguments - name, phone wich need to be changed and new phone\nphone: show contact phones information, need 1 argument - contact name")
+                print(f"{Back.WHITE}add:{Style.NORMAL} add new contact, need 2 arguments - name and phone number 10 digits\n{Back.WHITE}change:{Style.NORMAL} change contact phone information, need 3 arguments - name, phone wich need to be changed and new phone\n{Back.WHITE}phone:{Style.NORMAL} show contact phones information, need 1 argument - contact name")
 
             elif command == "hello":
-                print("How can I help you?")
+                print(Fore.YELLOW + "How can I help you?" + Style.RESET_ALL)
 
             elif command == "add":
                 print(add_contact(args, book))
@@ -54,10 +55,10 @@ def main():
                 print(birthdays(args, book))
 
             else:
-                print("Invalid command.")
+                print(Fore.RED + "Invalid command.")
         except (EOFError, KeyboardInterrupt):
             save_data(book)
-            print("Good bye!")
+            print(Fore.YELLOW + "Good bye!" + Style.RESET_ALL)
             break
 
 if __name__ == "__main__":

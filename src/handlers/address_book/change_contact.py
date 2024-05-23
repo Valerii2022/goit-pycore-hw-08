@@ -1,5 +1,6 @@
 from src.utils import input_error
 from src.models import AddressBook
+from colorama import Fore
 
 @input_error
 def change_contact(args, book: AddressBook):
@@ -9,6 +10,6 @@ def change_contact(args, book: AddressBook):
     record = book.find(name)
     if record:
         record.edit_phone(old_phone, new_phone)
-        return f"Phone number for contact {name} changed"
+        return Fore.GREEN + f"Phone number for contact {name} changed"
     else:
-        return f"Contact {name} not found"
+        return Fore.RED + f"Contact {name} not found"

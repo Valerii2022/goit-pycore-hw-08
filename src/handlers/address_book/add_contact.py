@@ -1,6 +1,7 @@
 from src.utils import input_error
 from src.models import AddressBook
 from src.models import Record
+from colorama import Fore
 
 @input_error
 def add_contact(args, book: AddressBook):
@@ -8,11 +9,11 @@ def add_contact(args, book: AddressBook):
         raise IndexError
     name, phone, *_ = args
     record = book.find(name)
-    message = "Contact updated."
+    message = Fore.GREEN + "Contact updated."
     if record is None:
         record = Record(name)
         book.add_record(record)
-        message = "Contact added."
+        message = Fore.GREEN + "Contact added."
     if phone:
         try:
             record.add_phone(phone)

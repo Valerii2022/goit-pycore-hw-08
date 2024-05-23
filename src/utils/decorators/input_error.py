@@ -1,13 +1,16 @@
+from colorama import Fore, Style
+
 def input_error(func):
     def wrapper(*args, **kwargs):
         try:
             return func(*args, **kwargs)
         except KeyError:
-            return "Contact not found. Please provide a valid name."
-        except ValueError as e:
-            return f"Give me correct name and phone please. {e}"
+            return Fore.RED + "Contact not found. Please provide a valid name." + Style.RESET_ALL
         except IndexError:
-            return "Please provide the correct number of arguments."
+            return Fore.RED +  "Please provide the correct number of arguments." + Style.RESET_ALL
+        except ValueError as e:
+            return Fore.RED +  f"Give me correct name and phone please. {e}" + Style.RESET_ALL
         except Exception:
-            return "An unexpected error occurred. Please try again."
+            return Fore.RED +  "An unexpected error occurred. Please try again." + Style.RESET_ALL
     return wrapper
+
