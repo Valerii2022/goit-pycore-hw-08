@@ -23,6 +23,9 @@ def main():
                 print("Good bye!")
                 break
 
+            elif command == "help":
+                print("add: add new contact, need 2 arguments - name and phone number 10 digits\nchange: change contact phone information, need 3 arguments - name, phone wich need to be changed and new phone\nphone: show contact phones information, need 1 argument - contact name")
+
             elif command == "hello":
                 print("How can I help you?")
 
@@ -30,7 +33,6 @@ def main():
                 print(add_contact(args, book))
             
             elif command == "change":
-                print("Usage: change <contact_name>")
                 print(change_contact(args, book))
             
             elif command == "phone":
