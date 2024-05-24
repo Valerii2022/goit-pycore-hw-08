@@ -1,11 +1,13 @@
 from src.handlers import add_birthday, add_contact, birthdays, change_contact, show_all, show_phone, remove_phone, show_birthday
-from src.utils import load_data, save_data, parse_input
+from src.utils import load_data, save_data, parse_input, help
 from prompt_toolkit import prompt
 from prompt_toolkit.completion import WordCompleter
-from colorama import Fore, Style, Back
+from colorama import init, Fore, Style, Back
+
+init()
 
 commands = [
-    "close ", "exit ", "hello ", "add ", "change ", "phone ", "remove-phone ", "all ", "add-birthday ", "show-birthday ", "birthdays ", "help "
+    "close", "exit", "hello","add", "change", "phone", "remove-phone", "all", "add-birthday", "show-birthday", "birthdays", "help"
 ]
 
 command_completer = WordCompleter(commands, ignore_case=True)
@@ -25,7 +27,8 @@ def main():
                 break
 
             elif command == "help":
-                print(f"{Back.WHITE}add:{Style.NORMAL} add new contact, need 2 arguments - name and phone number 10 digits\n{Back.WHITE}change:{Style.NORMAL} change contact phone information, need 3 arguments - name, phone wich need to be changed and new phone\n{Back.WHITE}phone:{Style.NORMAL} show contact phones information, need 1 argument - contact name")
+                print(help())
+                # print(f"{Back.WHITE}add:{Style.RESET_ALL} add new contact, need 2 arguments - name and phone number 10 digits\n{Back.WHITE}change:{Style.RESET_ALL} change contact phone information, need 3 arguments - name, phone wich need to be changed and new phone\n{Back.WHITE}phone:{Style.NORMAL} show contact phones information, need 1 argument - contact name")
 
             elif command == "hello":
                 print(Fore.YELLOW + "How can I help you?" + Style.RESET_ALL)

@@ -44,7 +44,6 @@ class AddressBook(UserDict):
                 record.phones if record.phones else ""
             ]
             table.append(row)
-        print(len(table))
         if len(table) == 0:
             return None
         return tabulate(table, headers, tablefmt="grid")
